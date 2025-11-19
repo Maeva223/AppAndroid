@@ -1,9 +1,33 @@
 package cl.tuorg.tuapp.Screens
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import cl.tuorg.tuapp.Nav.Route
+import cl.tuorg.tuapp.R
+import cl.tuorg.tuapp.ui.theme.AppIotComposeTheme
 
 @Composable
 fun LoginContent(
@@ -18,12 +42,21 @@ fun LoginContent(
         modifier = Modifier
             .fillMaxSize()
             .padding(20.dp),
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        // 1. Logo agregado aquí
+        Image(
+            painter = painterResource(id = R.drawable.logo),
+            contentDescription = "Logo",
+            modifier = Modifier.size(100.dp) // Ajusta el tamaño según necesites
+        )
+
+        Spacer(Modifier.height(16.dp))
+
         Text(
             text = "Bienvenido",
-            fontSize = 23.sp,
-            modifier = Modifier.align(Alignment.CenterHorizontally)
+            fontSize = 23.sp
         )
 
         Spacer(Modifier.height(12.dp))
@@ -40,7 +73,8 @@ fun LoginContent(
         OutlinedTextField(
             value = pass,
             onValueChange = onPassChange,
-            label = { Text("Contraseña") }
+            label = { Text("Contraseña") },
+            modifier = Modifier.fillMaxWidth() // Agregado para que coincida con el usuario
         )
 
         Spacer(Modifier.height(16.dp))
@@ -79,7 +113,7 @@ fun LoginScreen(nav: NavController) {
 @Preview(showBackground = true)
 @Composable
 fun LoginContentPreview() {
-    AppTheme {
+    AppIotComposeTheme {
         LoginContent(
             user = "javier@demo.cl",
             pass = "123456",

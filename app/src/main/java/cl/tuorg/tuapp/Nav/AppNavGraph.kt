@@ -8,7 +8,7 @@ import androidx.navigation.NavController
 import cl.tuorg.tuapp.Screens.HomeScreen
 import cl.tuorg.tuapp.Screens.LoginScreen
 import cl.tuorg.tuapp.Screens.RegisterScreen
-import cl.tuorg.tuapp.screens.*
+
 
 @Composable
 fun AppNavGraph() {
