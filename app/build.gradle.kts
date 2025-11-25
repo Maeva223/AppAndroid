@@ -6,14 +6,12 @@ plugins {
 
 android {
     namespace = "cl.tuorg.tuapp"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36 // ACTUALIZADO: De 35 a 36 para solucionar el error de compatibilidad
 
     defaultConfig {
         applicationId = "cl.tuorg.tuapp"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 35 // El target puede quedarse en 35 por ahora, o subirlo a 36 si quieres
         versionCode = 1
         versionName = "1.0"
 
@@ -63,4 +61,8 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.navigation:navigation-compose:2.8.0")
     implementation("androidx.activity:activity-compose:1.9.2")
+    
+    // --- AGREGADO PARA LA GUÍA 2 (RETROFIT) ---
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 }
